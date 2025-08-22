@@ -1,0 +1,155 @@
+# 📄 CONTRIBUTING.md
+
+Thanks for your interest in contributing to **Ammamma Kathalu**!
+This guide explains how to set up the project, make changes, and submit them.
+
+---
+
+## 🧰 Prerequisites
+
+* Python 3.9+
+* `pip` (or `pipx`)
+* Git
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run locally:
+
+```bash
+streamlit run app.py
+```
+
+---
+
+## 🗂 Project Structure (key parts)
+
+```
+ammamma_kathalu/
+├─ app.py
+├─ pages/
+│  ├─ traditional_mode.py
+│  ├─ meme_mode.py
+│  └─ admin_panel.py
+├─ auth/
+│  └─ auth_handler.py
+├─ utils/
+│  └─ file_handler.py
+├─ assets/
+│  └─ memes/           # static meme images
+├─ data/
+│  ├─ users.json       # local users store
+│  └─ uploads/         # user submissions
+├─ README.md
+├─ CONTRIBUTING.md
+├─ CHANGELOG.md
+├─ LICENSE
+└─ requirements.txt
+```
+
+---
+
+## 🌿 Branching Model
+
+* `main` – stable, deployable
+* `dev` – integration branch for features
+* `feat/<short-name>` – new features
+* `fix/<short-name>` – bug fixes
+* `chore/<short-name>` – tooling/docs
+
+Create a branch:
+
+```bash
+git checkout -b feat/menu-improvements
+```
+
+---
+
+## ✍️ Commit Messages (Conventional Commits)
+
+Use one of:
+
+* `feat: …` new feature
+* `fix: …` bug fix
+* `docs: …` docs only
+* `style: …` formatting (no code change)
+* `refactor: …` no feature/bug change
+* `test: …` tests only
+* `chore: …` tooling/config
+
+Example:
+
+```
+feat: add floating menu and topbar alignment
+fix: handle empty text uploads in traditional mode
+```
+
+---
+
+## 🧪 Testing & Manual QA
+
+Before opening a PR:
+
+1. **Run the app** and verify:
+
+   * Login/Signup flow works
+   * After login, **Traditional Mode** loads by default
+   * Mode toggles work (Traditional ↔ Meme)
+   * Menu button opens sidebar with **Profile, Admin (if role=admin), Logout**
+   * File uploads: text, image, audio, video save without errors
+2. **Mobile check**
+   Use browser dev tools → Device toolbar (e.g., iPhone 12) and ensure:
+
+   * Top bar aligns (title left, menu right)
+   * Buttons don’t overflow
+   * Sidebar opens and is usable
+
+---
+
+## 🧯 Code Style & Guidelines
+
+* **Python**: keep functions small; prefer pure functions in utils
+* **Streamlit**:
+
+  * Use `st.session_state` for auth/session flags
+  * Avoid global reassignments; call `st.rerun()` after state changes
+  * Keep pages self-contained (`pages/*.py`)
+* **File I/O**:
+
+  * Use `utils/file_handler.py` for all disk reads/writes
+  * Don’t hardcode paths; rely on helpers
+
+---
+
+## 🔐 Security / Privacy
+
+* Don’t log passwords.
+* Keep dummy admin in `ensure_admin_user()` only for local dev.
+* No personal data in commits.
+
+## ✅ Pull Request Checklist
+
+* [ ] PR title uses Conventional Commit (e.g., `feat: …`)
+* [ ] Scope limited to one logical change
+* [ ] Tested locally (desktop + mobile layout)
+* [ ] No console errors in Streamlit
+* [ ] Updated docs if needed (README/CHANGELOG)
+
+Open a PR against `dev`:
+
+```bash
+git push -u origin feat/menu-improvements
+# then open a PR on GitHub/GitLab from feat/... -> dev
+```
+## 🐞 Reporting Issues
+Include:
+* Steps to reproduce
+* Expected vs actual behavior
+* Screenshots / error trace
+* Environment: OS, Python version, Streamlit version
+
+## 📜 License
+By contributing, you agree your contributions are licensed under the project’s **MIT License**.
