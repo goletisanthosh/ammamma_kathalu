@@ -1,0 +1,27 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.  
+This project follows [Semantic Versioning](https://semver.org/).
+
+---
+
+## [1.0.0] - 2025-08-20
+### Added
+- Initial release of **Ammamma Kathalu** app.
+- User authentication (Sign up / Login).
+- Traditional Mode (text & audio).
+- Meme Mode (images & videos).
+- Profile management, settings, and logout options.
+- Admin access for managing content.
+- Offline/low-network compatibility.
+- Mobile-friendly layout with responsive UI.
+
+---
+
+## [1.1.0] - Upcoming
+### Planned
+- Improved audio/video storage with cloud integration.
+- Dark/light theme toggle.
+- Multi-language support (starting with Telugu + English).
+- Search and filter options for content.
+
