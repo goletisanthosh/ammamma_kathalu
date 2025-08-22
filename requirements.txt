@@ -1,5 +1,5 @@
-streamlit>=1.18
-streamlit-webrtc>=0.55.0
-pillow
-numpy
-av
+streamlit==1.38.0
+pandas==2.2.2
+numpy==1.26.4
+Pillow==10.3.0
+requests==2.32.3
